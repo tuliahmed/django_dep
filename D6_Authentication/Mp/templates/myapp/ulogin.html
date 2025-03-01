@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+<form action="{% url 'relative:login' %}"method='POST'>
+    <label for="UserName">User Name</label><br>
+    <input type="text" name='UserName' placeholder="User Name" required><br>
+    <label for="UserPassword" style="margin-top: 10px;">User Password</label><br>
+    <input type="password" name="UserPassword" placeholder="Password" required><br>
+    {% csrf_token %}
+    <input type="submit" name='submit' value="Submit" class="btn btn-success btn-sm" style="margin-top: 10px;">
+</form>
+{% endblock %}

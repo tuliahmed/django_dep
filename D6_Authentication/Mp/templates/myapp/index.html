@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+<h1> Welcome to Home page</h1>
+{% if user.is_authenticated %}
+    <p>{{ iuserInfo.username }}</p>
+    <p>{{ iuserInfo.email }}</p>
+    <p><a href="{{ iuserMoreInfo.SocialMediaLink }}">Facebook Profile</a></p>
+    <img src="/media/{{ iuserMoreInfo.Profile_Picture }}"  width="200px" height="200px">
+{% endif %}
+{% endblock %}
