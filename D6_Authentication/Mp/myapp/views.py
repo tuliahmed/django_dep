@@ -23,6 +23,10 @@ def index(request):
         user_id=current_user.id
         userInfo=User.objects.get(pk=user_id)
         userMoreInfo=UserMoreInfo.objects.get(user__pk=user_id)
+
+    else:
+        userInfo=None
+        userMoreInfo=None
     return render(request, 'myapp/index.html',{'iuserInfo':userInfo,'iuserMoreInfo':userMoreInfo })
 
 
