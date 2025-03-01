@@ -18,16 +18,14 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
+    dic={}
     if request.user.is_authenticated:
         current_user = request.user
         user_id=current_user.id
         userInfo=User.objects.get(pk=user_id)
         userMoreInfo=UserMoreInfo.objects.get(user__pk=user_id)
-
-    else:
-        userInfo=None
-        userMoreInfo=None
-    return render(request, 'myapp/index.html',{'iuserInfo':userInfo,'iuserMoreInfo':userMoreInfo })
+        dic={'iuserInfo':userInfo,'iuserMoreInfo':userMoreInfo }
+    return render(request, 'myapp/index.html',context=dic)
 
 
 def Register(request):
